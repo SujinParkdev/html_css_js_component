@@ -1,0 +1,45 @@
+/*
+  ------------------------------------------------
+  CSS 플로팅 레이아웃(Layout)
+
+일반적인 레이아웃 흐름 (Normal Layout Flow)
+HTML이 기본적으로 화면에 렌더링 되는 것
+
+Floating 레이아웃
+- 박스를 왼쪽, 오른쪽으로 부유시키는 기법. 부유시키기 때문에 쌓일 수 있다.
+- 기본값은 none
+- 멀티컬럼 디자인을 쉽게 구현할 수 있다.
+  (부모요소에 float를 주고 자식요소의 width값을 일정하게 주면 됨)
+- 부모요소는 float된 자식요소를 감싸지 못함. (자식요소가 부유되었기 때문에)
+1. 자식요소의 마지막에 div박스를 만들어 clear:both속성을 준다. -> 무의미한 div를 만들어야 하기 때문에 비추.
+2. 박스 그룹에 가상요소를 사용해서 clearfix 값을 줘야 한다. -> 부모 요소에 clearfix라는 클래스를 추가해주고 css를 조정해준다.
+- 마크업한 순서대로 부유된다.
+  ------------------------------------------------
+*/
+
+.box-group {
+  overflow: auto;
+  margin-top: 20px;
+  border: 10px solid #e9e9e9;
+}
+
+.box {
+  width: 140px;
+  height: 140px;
+}
+
+.box.is-blue   { background: #3b4055; }
+.box.is-yellow { background: #fff06b; }
+.box.is-green  { background: #69ccb5; }
+
+.is-blue {
+  float: left;
+  width: 200px;
+}
+
+.clearfix::after {
+  /* 만약 컨텐츠를 삽입할시 visibility: hidden과 height: 0을 넣어줘야 함 */
+  content: '';
+  display: block;
+  clear: both;
+}
