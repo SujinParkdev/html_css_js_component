@@ -1,0 +1,54 @@
+/*
+  ------------------------------------------------
+  CSS 배경(Background) 스타일링
+  배경은 content-box, padding-box, border-box가 포함된다.
+  margin-box는 투명하기 때문에 포함되지 않음.
+  모던 브라우저에서는 background-clip를 사용해 변경 가능
+  ------------------------------------------------
+*/
+
+body {
+  /* background-image: url("../images/NewYork-US.jpg"); */
+  /* background-position은 키워드, 픽셀, 퍼센트 가능 */
+  /* background-position: left top; */
+  /* norepeat, x축, y축 반복 가능 */
+  /* background-repeat: no-repeat; */
+  background:
+    transparent
+    url("../images/cloud-design-patterns.svg")
+    no-repeat
+    10px 40px
+    fixed;
+  background-size: 100px 100px;
+}
+
+#css-background {
+  margin-left: 70px;
+}
+
+.bg-image {
+  background: url("../images/NewYork-US.jpg") no-repeat;
+  background-size: cover;
+}
+
+.is-floral {
+  background: #000 url("../images/oriental-floral-pattern.svg") center;
+  background-size:  150px;
+}
+
+.is-model {
+  background: #000 url("../images/model.jpg") center;
+  background-size:  100px;
+}
+
+.background-clip {
+  box-sizing: border-box;
+  border: 20px solid rgba(0, 0, 0, .2);
+  padding: 20px;
+  background: url("../images/model.jpg") center;
+  background-size: contain;
+  /* background-clip : padding-box만큼 배경이미지가 보더랑 겹치지 않고 '클립'됨. 가장 아래에 있어야 함 */
+  /* background-clip: padding-box; */
+  /* background-origin: padding-box이 기본 값. 어디부터 배경이 시작에 대한 기준점을 정함 */
+  background-origin: padding-box;
+}
